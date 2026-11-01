@@ -156,10 +156,10 @@ button.btn[disabled] { opacity:.55; cursor:not-allowed; }
 
 <div class="check">
 <input type="checkbox" id="consent" required>
-<label for="consent">The nominee agrees to public participation in the CANASA National Speakers Awards 2026, including publication of their name, photograph and profile if shortlisted. <span class="req">*</span></label>
+<label for="consent">I understand that CANASA will contact the nominee to confirm their consent and request their portrait photograph before any shortlisting or publication. <span class="req">*</span></label>
 </div>
 
-<div class="notebox"><strong>Important — nominee's photograph:</strong> After pressing Submit, <strong>attach the nominee's professional portrait photo to the email before sending</strong> — nominations without a photo cannot be shortlisted.</div>
+<div class="notebox"><strong>Good news — no photograph needed to nominate:</strong> Just send the nominee's name, category and your reason. CANASA will contact the nominee directly to request their professional portrait and confirm their consent — a portrait and consent are required <strong>before shortlisting</strong>, not before you nominate.</div>
 
 <button class="btn" type="submit" style="border:none; cursor:pointer; font-family:'Inter',system-ui,sans-serif; font-size:16px;">Submit Nomination</button>
 <p class="hint" style="margin-top:14px;">Nominations close November 10, 2026, at 11:59 PM Cameroon time. Every nomination is reviewed before the nominee appears on any public page.</p>
@@ -180,7 +180,7 @@ document.getElementById('nomform').addEventListener('submit', function(e){
   var reason = v('reason');
   var words = reason ? reason.split(/\s+/).length : 0;
   if (words > 250) { alert('The reason for nomination is ' + words + ' words \u2014 please shorten it to 250 words or fewer.'); return; }
-  if (!document.getElementById('consent').checked) { alert('Please confirm the nominee\u2019s consent to public participation.'); return; }
+  if (!document.getElementById('consent').checked) { alert('Please confirm you understand CANASA will contact the nominee for their consent and portrait.'); return; }
   var body = 'CANASA NATIONAL SPEAKERS AWARDS 2026 \u2014 NOMINATION\n\n' +
     'Award category: ' + cat + '\n' +
     'Nominee full name: ' + v('nname') + '\n' +
@@ -196,8 +196,8 @@ document.getElementById('nomform').addEventListener('submit', function(e){
     'Social media / website: ' + (v('social') || '\u2014') + '\n\n' +
     'Nominated by: ' + v('byname') + '\n' +
     'Nominator contact: ' + v('bycontact') + '\n' +
-    'Consent: The nominee agrees to public participation.\n\n' +
-    'REMINDER: Attach the nominee\u2019s professional portrait photo to this email before sending \u2014 nominations without a photo cannot be shortlisted.';
+    'Consent: CANASA will contact the nominee to confirm consent and request their portrait before shortlisting.\n\n' +
+    'NOTE: No photograph is needed with this nomination — CANASA will request the nominee\u2019s portrait directly.';
   var url = 'mailto:ceo@tolkzspeakers.com?cc=talktooliver77@gmail.com' +
     '&subject=' + encodeURIComponent('CANASA Awards 2026 Nomination \u2014 ' + v('nname') + ' \u2014 ' + cat) +
     '&body=' + encodeURIComponent(body);
